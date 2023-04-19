@@ -1,0 +1,438 @@
+html,
+body {
+    height: 100%;
+}
+p{
+    font-family: 'Titan One', cursive;
+    font-size: 50px;
+    color: #ef0101 solid;
+}
+.tv {
+    position: relative;
+    width: 800px; /* change this value to make the frame wider */
+    height: 450px;
+    background-color: #333;
+    border: 10px solid #666;
+    border-radius: 20px;
+    box-shadow: 0px 0px 20px #666;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 50px;
+    background-color: #333;
+    color: white;
+    z-index: 1;
+    font-size: 20px;
+  }
+  
+  .navbar-text {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    animation: slide-text 10s linear infinite;
+  }
+
+  
+  
+  @keyframes slide-text {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
+
+
+/*媒体相应式布局小于750px*/
+@media (max-width: 750px) {
+    .tv {
+        width: 400px;
+        height: 600px;
+    }
+
+    .screen {
+        width: 335px;
+        height: 450px;
+    }
+
+    .container {
+        right: 90px;
+        top: 490px;
+    }
+
+    .knob.one {
+        top: 510px;
+        right: 300px;
+    }
+
+    .knob.two {
+        top: 510px;
+        right: 250px;
+    }
+
+    #overlay p {
+        padding: 0 20px;
+    }
+}
+
+/*媒体响应式布局大于750px*/
+@media (min-width: 750px) {
+    .tv {
+        width: 600px;
+        height: 400px;
+    }
+
+    .screen {
+        width: 450px;
+        height: 350px;
+    }
+
+    .container {
+        right: 5px;
+        top: 210px;
+    }
+
+    .knob.one {
+        top: 31px;
+        right: 43px;
+    }
+
+    .knob.two {
+        top: 88px;
+        right: 43px;
+    }
+
+    #overlay p {
+        padding: 0 200px;
+    }
+}
+
+body {
+
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-flex-shrink: 0;
+    flex-shrink: 0;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.screen {
+    top: 16px;
+    left: 25px;
+    position: relative;
+    background: #ffffff;
+    border: 4px solid  #666;
+    overflow: hidden;
+    z-index: 1;
+    opacity: 1;
+    border-radius: 18px;
+}
+/*初始关机状态*/
+.screen .power-switch {
+    opacity: 0;
+}
+
+.screen .power-switch.power-on {
+    -webkit-animation: power-on 0.18s 2 forwards;
+    animation: power-on 0.18s 2 forwards;
+}
+
+.screen .power-off {
+    -webkit-animation: power-off 0.7s forwards;
+    animation: power-off 0.7s forwards;
+}
+
+.screen .no-signal-item {
+    position: absolute;
+    width: 14.29%;
+    height: 80%;
+}
+
+.screen .no-signal-item::after {
+    position: absolute;
+    bottom: -26%;
+    left: 0;
+    content: "";
+    width: 100%;
+    height: 26%;
+}
+
+.screen .no-signal-item:nth-child(1) {
+    left: 0;
+    background: rgb(249, 0, 0);
+}
+
+.screen .no-signal-item:nth-child(1)::after {
+    background: #ffffff;
+}
+
+.screen .no-signal-item:nth-child(2) {
+    left: 14.29%;
+    background: #ffffff;
+}
+
+.screen .no-signal-item:nth-child(2)::after {
+    background: rgb(255, 0, 0);
+}
+
+.screen .no-signal-item:nth-child(3) {
+    left: calc(14.29% * 2);
+    background: #ff0000;
+}
+
+.screen .no-signal-item:nth-child(3)::after {
+    background: #ffffff;
+}
+
+.screen .no-signal-item:nth-child(4) {
+    left: calc(14.29% * 3);
+    background: #ffffff;
+}
+
+.screen .no-signal-item:nth-child(4)::after {
+    background: rgb(255, 0, 0);
+}
+
+.screen .no-signal-item:nth-child(5) {
+    left: calc(14.29% * 4);
+    background: #ff0000;
+}
+
+.screen .no-signal-item:nth-child(5)::after {
+    background: #ffffff;
+}
+
+.screen .no-signal-item:nth-child(6) {
+    left: calc(14.29% * 5);
+    background: #ffffff;
+}
+
+.screen .no-signal-item:nth-child(6)::after {
+    background: rgb(255, 0, 0);
+}
+
+.screen .no-signal-item:nth-child(7) {
+    left: calc(14.29% * 6);
+    background: #ff0000;
+}
+
+.screen .no-signal-item:nth-child(7)::after {
+    background: #fff;
+}
+
+/*按钮*/
+.knob {
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    border-radius: 35px;
+    background: #ffffff;
+    border: #ef0101 2px solid;
+    box-shadow: 0 1px #ffffff;
+}
+
+
+/* 按钮激活状态 */
+.active {
+    background: #ff0000;
+}
+
+.power-button {
+    position: absolute;
+    bottom: 27px;
+    right: 50px;
+    width: 20px;
+    height: 20px;
+    background: #ef5754;
+    box-shadow: 0 1px #ffffff;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    opacity: 1;
+    border-radius: 20px;
+}
+
+.power-button:hover {
+    box-shadow: 0 0;
+}
+
+
+/*开关动画*/
+@-webkit-keyframes power-on {
+    0% {
+        opacity: 0;
+    }
+    30% {
+        opacity: 0.5;
+    }
+    60% {
+        opacity: 0.8;
+    }
+    80% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes power-on {
+    0% {
+        opacity: 0;
+    }
+    30% {
+        opacity: 0.5;
+    }
+    60% {
+        opacity: 0.8;
+    }
+    80% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes power-off {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes power-off {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+/*遮罩层样式*/
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color:#666;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    transition: opacity 2s ease-in-out;
+    z-index: 999;
+}
+
+#overlay.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+#overlay p {
+    font-size: 24px;
+    color: white;
+    text-align: center;
+}
+
+/*旋钮样式*/
+.container {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+}
+
+.container .knob {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color:#666;
+    border: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.container .pointer {
+    width: 20px;
+    height: 110px;
+    position: absolute;
+    top: -5px;
+    left: 40px;
+    transform-origin: center;
+    transform: rotate(-45deg);
+
+    z-index: 2;
+    background-color: #fff;
+    border-radius: 4px;
+
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(-45deg);
+    }
+    50% {
+        transform: rotate(45deg);
+    }
+    100% {
+        transform: rotate(-45deg);
+    }
+}
+
+.power-switch {
+    width: 100%;
+    height: 100%;
+}
+
+/*轮播图*/
+.has-signal {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    margin: 0 auto;
+    position: relative;
+    display: none;
+}
+
+.has-signal img {
+    width: 100%;
+    height: 100%;
+}
+
+#slider-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: power-on 0.5s ease-in-out;
+}
