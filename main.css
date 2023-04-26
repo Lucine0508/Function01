@@ -1,15 +1,18 @@
 html,
 body {
     height: 100%;
+    background-color: #333;
+    background-image: url("https://d2w9rnfcy7mm78.cloudfront.net/21555672/original_9ff173b491d1becb906b9a022c0cdb81.jpg?1682475664?bc=0");
+    cursor: hand;
 }
 p{
-    font-family: 'Titan One', cursive;
-    font-size: 50px;
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 30px;
     color: #ef0101 solid;
 }
 .tv {
     position: relative;
-    width: 800px; /* change this value to make the frame wider */
+    width: 800px; 
     height: 450px;
     background-color: #333;
     border: 10px solid #666;
@@ -22,10 +25,48 @@ p{
     top: 0;
     width: 100%;
     height: 50px;
-    background-color: #333;
+    background-color: #666;
     color: white;
     z-index: 1;
     font-size: 20px;
+  }
+  .navbar {
+    background-image: url('https://d2w9rnfcy7mm78.cloudfront.net/21551390/original_2161b076ae2b0d6d8fb623f53f8d02f9.svg?1682455705?bc=0');
+    background-size: 40px 40px; 
+    background-repeat: repeat-x;
+    animation: slide 10s linear infinite;
+  }
+
+  .slide-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 25px;
+    border-radius: 25px;
+    background-color: #ccc;
+    transition: background-color 0.3s ease-in-out;
+    cursor: pointer;
+  }
+
+  .slide-button.active {
+    background-color: #ef0101;
+  }
+
+  .dark {
+    background-color: rgb(255, 255, 255);
+    background-image: url('https://d2w9rnfcy7mm78.cloudfront.net/21555747/original_0e20250be322fec3dc96e14430a89a70.jpg?1682476183?bc=0');
+    color: #fff;
+  }
+  
+  
+  @keyframes slide {
+    from {
+      background-position: 0 0;
+    }
+    to {
+      background-position: 30px 0; 
+    }
   }
   
   .navbar-text {
@@ -38,6 +79,11 @@ p{
     padding-left: 20px;
     animation: slide-text 10s linear infinite;
   }
+  .buttons button {
+  font-family: Arial, sans-serif;
+}
+
+
 
   
   
@@ -243,19 +289,24 @@ body {
     background: #fff;
 }
 
-/*按钮*/
+
 .knob {
     position: absolute;
     width: 35px;
     height: 35px;
     border-radius: 35px;
     background: #ffffff;
-    border: #ef0101 2px solid;
+    border:  #ffffff 0px solid;
     box-shadow: 0 1px #ffffff;
+    background-color: #ccc;
+    transition: background-color 0.3s ease-in-out;
+    cursor: pointer;
+
 }
 
 
-/* 按钮激活状态 */
+
+
 .active {
     background: #ff0000;
 }
@@ -279,7 +330,7 @@ body {
 }
 
 
-/*开关动画*/
+
 @-webkit-keyframes power-on {
     0% {
         opacity: 0;
@@ -334,14 +385,14 @@ body {
     }
 }
 
-/*遮罩层样式*/
+
 #overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color:#666;
+    background-color: #333;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -359,9 +410,10 @@ body {
     font-size: 24px;
     color: white;
     text-align: center;
+    
 }
 
-/*旋钮样式*/
+
 .container {
     position: absolute;
     width: 100px;
@@ -397,6 +449,9 @@ body {
     border-radius: 4px;
 
 }
+.buttons button {
+    font-family: Arial, sans-serif;
+  }
 
 @keyframes rotate {
     0% {
@@ -415,7 +470,7 @@ body {
     height: 100%;
 }
 
-/*轮播图*/
+
 .has-signal {
     width: 100%;
     height: 100%;
@@ -436,3 +491,12 @@ body {
     left: 0;
     animation: power-on 0.5s ease-in-out;
 }
+
+.am {
+    filter: grayscale(50%);
+  }
+  
+  /* example PM styles */
+  .pm {
+    filter: invert(100%);
+  }

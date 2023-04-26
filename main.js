@@ -1,16 +1,21 @@
 
 
 
-let AM = [{"src":"https://d2w9rnfcy7mm78.cloudfront.net/21412961/original_41f862831e75c45903843ae5550a1ac8.png?1681665424?bc=0"},
-    {"src": "https://d2w9rnfcy7mm78.cloudfront.net/21456987/original_7cb1d0f01dce23f005d142632a1e32fb.png?1681871645?bc=0"},
-    {"src": "https://d2w9rnfcy7mm78.cloudfront.net/21456986/original_c4788a933a4dd64ae844085417279d4a.png?1681871642?bc=0"},
-    {"src": "https://d2w9rnfcy7mm78.cloudfront.net/21456985/original_aa3cbecac75661c2c4d39fea238f0ccf.png?1681871640?bc=0"}];
-let PM = [{"src": "https://d2w9rnfcy7mm78.cloudfront.net/21457035/original_6fc89ff7238de2297d7896f9ba9e0e2f.png?1681871913?bc=0"},
-    {"src": "https://d2w9rnfcy7mm78.cloudfront.net/21457140/original_e03cdcc18d391d689162af4f6a833bb2.png?1681872445?bc=0"},];
+let AM = [{"src":"https://d2w9rnfcy7mm78.cloudfront.net/21557105/original_599f11a168c54351eeb13132553c5c3e.png?1682485483?bc=0"},
+    {"src": "https://d2w9rnfcy7mm78.cloudfront.net/21557106/original_3ba10bd0dea3e51ba2a088e24c0bf89d.png?1682485485?bc=0"},
+    {"src": "https://d2w9rnfcy7mm78.cloudfront.net/21557107/original_96c51c3ef22576718436291d84de34f6.png?1682485486?bc=0"},
+    {"src": "https://d2w9rnfcy7mm78.cloudfront.net/21557122/original_b70c73b2c0cf6caee9b4cfd3c9216f18.png?1682485625?bc=0"}];
+let PM = [{"src": "https://d2w9rnfcy7mm78.cloudfront.net/21557112/original_833c9d3cc2adbb2b6340813cbc33a286.png?1682485517?bc=0"},
+    {"src": "https://d2w9rnfcy7mm78.cloudfront.net/21557114/original_a9745e1933dac2b69644b8e51b8c8a52.png?1682485518?bc=0"},
+    {"src": "https://d2w9rnfcy7mm78.cloudfront.net/21557070/original_8cd2b8e43551fcffa582f0afc10e6f36.png?1682485063?bc=0"},
+    {"src": "https://d2w9rnfcy7mm78.cloudfront.net/21557071/original_2bc4316eabd216f5f345053403215385.png?1682485065?bc=0"},];
 // 0 off 1 on
 let state = 0;
 // ampm, 0am 1pm
 let time = 0;
+
+
+
 
 
 setTimeout(function () {
@@ -104,3 +109,11 @@ knobTwo.addEventListener('click', function () {
     knobOne.classList.remove('active');
     time = 1;
 });
+
+let slideButton = document.querySelector('.slide-button');
+if (slideButton) {
+  slideButton.addEventListener('click', function() {
+    document.body.classList.toggle('dark');
+    slideButton.classList.toggle('active');
+  });
+}
